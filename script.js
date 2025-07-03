@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Elements ---
     const cityInput = document.getElementById('city-input');
     const searchButton = document.getElementById('search-button');
     const cityNameEl = document.getElementById('city-name');
@@ -20,20 +19,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const bodyEl = document.querySelector('body');
 
     // === ZAROORI: Apni API Key yahan daalein ===
-    const apiKey = "b3e2a1610c9547d3a41121143250307"; 
+    const apiKey = "AAPKI_API_KEY_YAHAN_DAALEIN"; 
 
-    // --- Functions ---
     async function getWeatherData(city) {
         const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`;
         
-        // Data aane se pehle animation hide karein
         appContainer.classList.remove('visible');
 
         try {
             const response = await fetch(apiUrl);
-            if (!response.ok) {
-                throw new Error('City not found');
-            }
+            if (!response.ok) { throw new Error('City not found'); }
             const data = await response.json();
             
             displayCurrentWeather(data);
@@ -41,10 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayHourlyForecast(data);
             setDynamicBackground(data);
             
-            // Saara data display hone ke baad animation show karein
-            setTimeout(() => {
-                appContainer.classList.add('visible');
-            }, 100);
+            setTimeout(() => { appContainer.classList.add('visible'); }, 100);
 
         } catch (error) {
             console.error("Error fetching weather data:", error);
@@ -60,13 +52,11 @@ document.addEventListener('DOMContentLoaded', () => {
         weatherIconEl.src = `https:${current.condition.icon}`;
         temperatureEl.textContent = `${Math.round(current.temp_c)}°`;
         weatherDescEl.textContent = current.condition.text;
-        
         feelsLikeEl.textContent = `${Math.round(current.feelslike_c)}°`;
         humidityEl.textContent = `${current.humidity}%`;
         windSpeedEl.textContent = `${current.wind_kph} km/h`;
         visibilityEl.textContent = `${current.vis_km} km`;
-
-        // Sunrise & Sunset
+        
         const astroData = data.forecast.forecastday[0].astro;
         sunriseEl.textContent = astroData.sunrise;
         sunsetEl.textContent = astroData.sunset;
@@ -117,34 +107,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (condition.includes('rain') || condition.includes('drizzle')) {
             bgImage = "url('images/rain.jpg')";
-        } else if (condition.includes('cloud') || condition.includes('overcast')) {
+        } else if (condition.includes('cloud') || condition.includes('overcast') || condition.includes('mist')) {
             bgImage = "url('images/clouds.jpg')";
         } else if (condition.includes('clear') || condition.includes('sunny')) {
             bgImage = "url('images/sunny.jpg')";
-        } else if (condition.includes('snow') || condition.includes('blizzard')) {
+        } else if (condition.includes('snow') || condition.includes('blizzard') || condition.includes('ice')) {
             bgImage = "url('images/snow.jpg')";
         } else {
-            bgImage = "linear-gradient(to top, #1e284a, #131a2e)"; // Default
+            bgImage = "linear-gradient(to top, #1e284a, #131a2e)";
         }
         bodyEl.style.backgroundImage = bgImage;
     }
 
-    // --- Event Listeners ---
     searchButton.addEventListener('click', () => {
         const city = cityInput.value.trim();
-        if (city) {
-            getWeatherData(city);
-        } else {
-            alert('Please enter a city name.');
-        }
+        if (city) { getWeatherData(city); } else { alert('Please enter a city name.'); }
     });
 
     cityInput.addEventListener('keyup', (event) => {
-        if (event.key === 'Enter') {
-            searchButton.click();
-        }
+        if (event.key === 'Enter') { searchButton.click(); }
     });
-
-    // --- Initial Load ---
+    
     getWeatherData('Delhi');
 });
