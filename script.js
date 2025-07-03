@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bodyEl = document.querySelector('body');
 
     // === ZAROORI: Apni API Key yahan daalein ===
-    const apiKey = "AAPKI_API_KEY_YAHAN_DAALEIN"; 
+    const apiKey = "474691301eaa47d1ab3130251250307"; 
 
     async function getWeatherData(city) {
         const apiUrl = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=no&alerts=no`;
