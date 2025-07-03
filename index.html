@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iLoveWeather - Your Friendly Weather Companion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Aap yahan apni website ka favicon laga sakte hain -->
+    <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-container">
+
+            <!-- === LOGO AUR TITLE YAHAN HAI === -->
+            <a href="index.html" id="logoLink">
+                <!-- === YAHAN TABDEELI KI GAYI HAI === -->
+                <img src="images/favicon-32x32.png" alt="iLoveWeather Logo" id="headerIcon"> 
+                <div class="logo-title-group">
+                    <span class="logo-text-part">I</span>
+                    <i class="fas fa-heart logo-heart-icon"></i>
+                    <span class="logo-text-part">weather</span>
+                </div>
+            </a>
+            <!-- ======================================= -->
+            
+            <div class="search-section">
+                <input type="text" id="city-input" placeholder="Search for a city..." autocomplete="off">
+                <button id="search-button" title="Search"><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main class="weather-app-container">
+        <!-- Main Weather Card -->
+        <div class="main-weather-card">
+            <div class="left-panel">
+                <h1 id="city-name">Loading...</h1>
+                <p id="local-time">--:--</p>
+                <div class="temp-container">
+                    <img id="weather-icon" src="https://cdn.weatherapi.com/weather/64x64/day/113.png" alt="weather icon">
+                    <p id="temperature">--°</p>
+                </div>
+                <p id="weather-description">...</p>
+            </div>
+            <div class="right-panel">
+                <h3>Current Details</h3>
+                <div class="details-grid">
+                    <div class="detail-item" title="Feels Like"><i class="fas fa-temperature-low"></i><span>Feels Like</span><p id="feels-like">--°</p></div>
+                    <div class="detail-item" title="Humidity"><i class="fas fa-tint"></i><span>Humidity</span><p id="humidity">--%</p></div>
+                    <div class="detail-item" title="Wind Speed"><i class="fas fa-wind"></i><span>Wind Speed</span><p id="wind-speed">-- km/h</p></div>
+                    <div class="detail-item" title="Visibility"><i class="fas fa-eye"></i><span>Visibility</span><p id="visibility">-- km</p></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forecast Section -->
+        <div class="forecast-section">
+            <h3>3-Day Forecast</h3>
+            <div class="forecast-container" id="forecast-container">
+                <!-- Forecast cards JavaScript se add honge -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
