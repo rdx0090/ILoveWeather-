@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- NAYI RADAR KI LIBRARY -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
 </head>
 <body>
@@ -23,20 +25,20 @@
                 <div id="autocomplete-results"></div>
             </div>
             <button id="my-location-btn" title="Get My Location"><i class="fas fa-location-arrow"></i> My Location</button>
+            
+            <!-- NAYA AD KA SECTION -->
+            <div class="ad-container">
+                <!-- Adsterra ka 300x250 ka ad code yahan paste karein -->
+                <p>Advertisement</p>
+            </div>
         </aside>
 
         <main class="content-area">
             <div id="weather-dashboard" class="hidden">
                 <section class="current-weather-section">
                     <div class="header">
-                        <div>
-                            <h1 id="city-name">Loading...</h1>
-                            <p id="local-time">--:--</p>
-                        </div>
-                        <div class="temp-display">
-                            <img id="weather-icon" src="" alt="">
-                            <span id="temperature">--°</span>
-                        </div>
+                        <div><h1 id="city-name">Loading...</h1><p id="local-time">--:--</p></div>
+                        <div class="temp-display"><img id="weather-icon" src="" alt=""><span id="temperature">--°</span></div>
                     </div>
                     <p id="weather-description">...</p>
                 </section>
@@ -44,16 +46,8 @@
                 <section class="details-section">
                     <h3>Today's Highlights</h3>
                     <div class="highlights-grid">
-                        <div class="highlight-card" id="aqi-card">
-                            <h4>Air Quality Index</h4>
-                            <div class="aqi-value" id="aqi-value">--</div>
-                            <p id="aqi-status">--</p>
-                        </div>
-                        <div class="highlight-card" id="uv-card">
-                            <h4>UV Index</h4>
-                            <p class="uv-value" id="uv-index">--</p>
-                            <p id="uv-status">--</p>
-                        </div>
+                        <div class="highlight-card" id="aqi-card"><h4>Air Quality Index</h4><div class="aqi-value" id="aqi-value">--</div><p id="aqi-status">--</p></div>
+                        <div class="highlight-card" id="uv-card"><h4>UV Index</h4><p class="uv-value" id="uv-index">--</p><p id="uv-status">--</p></div>
                         <div class="highlight-card"><h4>Sunrise & Sunset</h4><p id="sunrise-sunset">-- / --</p></div>
                         <div class="highlight-card"><h4>Humidity</h4><p id="humidity">--%</p></div>
                         <div class="highlight-card"><h4>Wind</h4><p id="wind-speed">-- km/h</p></div>
@@ -61,6 +55,12 @@
                     </div>
                 </section>
                 
+                <!-- NAYA RADAR MAP KA SECTION -->
+                <section class="map-section">
+                     <h3>Weather Radar</h3>
+                     <div id="map"></div>
+                </section>
+
                 <section class="forecast-section">
                     <h3>Upcoming Forecast</h3>
                     <div class="forecast-container" id="forecast-container"></div>
@@ -69,6 +69,8 @@
              <div id="loader" class="loader"></div>
         </main>
     </div>
+    <!-- NAYI RADAR KI SCRIPT -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
