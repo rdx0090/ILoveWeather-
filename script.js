@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bodyEl = document.querySelector('body');
 
     // === ZAROORI: Apni API Key yahan daalein ===
-    const apiKey = "AAPKI_API_KEY_YAHAN_DAALEIN"; 
+    const apiKey = "b3e2a1610c9547d3a41121143250307"; 
 
     // --- Functions ---
     async function getWeatherData(city) {
