@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const forecastContainer = document.getElementById('forecast-container');
 
     // === ZAROORI: Apni NAYI API Key yahan daalein ===
-    const apiKey = "AAPKI_NAYI_API_KEY_YAHAN"; 
+    const apiKey = "474691301eaa47d1ab3130251250307"; 
 
     // --- Functions ---
     async function getWeatherData(city) {
